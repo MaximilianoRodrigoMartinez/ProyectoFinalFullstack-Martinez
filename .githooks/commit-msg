@@ -1,0 +1,6 @@
+#!/bin/sh
+# Quita líneas de pie tipo "Made-with: ..." del mensaje de commit.
+msg="$1"
+tmp="$msg.tmp"
+grep -viE '^Made-with:' "$msg" > "$tmp" && mv "$tmp" "$msg"
+exit 0
